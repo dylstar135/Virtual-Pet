@@ -27,6 +27,35 @@ Pet.prototype.feed = function () {
   } else {
     this.hunger = MINIMUM_HUNGER;
   }
+
+  Pet.prototype.checkup = function () {
+    const HUNGRY = "I am hungry";
+    const UNFIT = "I need a walk";
+    const HUNGRY_AND_UNFIT = `${HUNGRY} and ${UNFIT}`;
+    const HAPPY = "I'm happy";
+
+    const isHungry = this.hunger >= 5;
+    const isUnfit = this.fitness <= 3;
+
+    if (isHungry && isUnfit) return HUNGRY_AND_UNFIT;
+    if (isHungry) return HUNGRY;
+    if (isUnfit) return UNFIT;
+    return HAPPY;
+  };
+};
+Pet.prototype.checkup = function () {
+  const HUNGRY = "I am hungry";
+  const UNFIT = "I need a walk";
+  const HUNGRY_AND_UNFIT = `${HUNGRY} and ${UNFIT}`;
+  const HAPPY = "I'm happy";
+
+  const isHungry = this.hunger >= 5;
+  const isUnfit = this.fitness <= 3;
+
+  if (isHungry && isUnfit) return HUNGRY_AND_UNFIT;
+  if (isHungry) return HUNGRY;
+  if (isUnfit) return UNFIT;
+  return HAPPY;
 };
 
 module.exports = Pet;
